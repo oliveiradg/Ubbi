@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "114606707754",
+    "project_id": "ubbi-3d6c9",
+    "storage_bucket": "ubbi-3d6c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:114606707754:android:dcfac54992dcc5aedf5f53",
+        "android_client_info": {
+          "package_name": "br.com.jboliveira"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "114606707754-7r9e4vkdluffmcns05a4v8gbdv5bi2c8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvW8kM72wXBZBMuGzm-69NImOOvI4ETTk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "114606707754-7r9e4vkdluffmcns05a4v8gbdv5bi2c8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
