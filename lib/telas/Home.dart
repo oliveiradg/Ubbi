@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ubbi/telas/cadastro_page.dart';
+
 
 
 
@@ -86,7 +86,7 @@ class Home extends StatelessWidget {
                       style: TextStyle(color: Colors.white),
                     ),
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const CadastroPage()));
+                      Navigator.pushNamed(context, "/cadastro");
 
                     },
                   ),

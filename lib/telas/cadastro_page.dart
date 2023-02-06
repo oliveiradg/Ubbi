@@ -80,7 +80,7 @@ class _CadastroPageState extends State<CadastroPage> {
                   ),
                   child: Row(
                     children: [
-                      Text('Passageiro'),
+                    const  Text('Passageiro'),
                       Switch(
                         value: _tipoUsuarioPassageiro,
                         onChanged: (bool valor) {
@@ -89,7 +89,7 @@ class _CadastroPageState extends State<CadastroPage> {
                           });
                         },
                       ),
-                      Text('Motorista'),
+                    const  Text('Motorista'),
                     ],
                   ),
                 ),

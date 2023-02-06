@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ubbi/telas/home.dart';
+import 'package:ubbi/telas/rotas_page.dart';
 
 // final ThemeData temaPadrao = ThemeData(
 //   primaryColor: const Color(0xff37474f),
@@ -17,10 +18,12 @@ colorScheme: const ColorScheme.light(
 
 void main() => runApp( MaterialApp(
   title: "Uber",
-  home: Home(),
+  home: const Home(),
   theme: temaPadrao,
+  initialRoute: "/",
+  onGenerateRoute: Rotas.gerarRotas,
   debugShowCheckedModeBanner: false,
-));
+),);
 
 
 
