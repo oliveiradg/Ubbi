@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ubbi/models/usuario_model.dart';
 
 class CadastroPage extends StatefulWidget {
   const CadastroPage({super.key});
@@ -12,6 +13,45 @@ class _CadastroPageState extends State<CadastroPage> {
   final TextEditingController _controllerNome = TextEditingController();
   final TextEditingController _controllerSenha = TextEditingController();
   bool _tipoUsuarioPassageiro = false;
+  String _mensagemErro = '';
+
+  _validarCampos() {
+    //recuperar dados dos campos
+    String nome = _controllerNome.text;
+    String email = _controllerEmail.text;
+    String senha = _controllerSenha.text;
+
+    //validar campos
+    if (nome.isNotEmpty) {
+      if (email.isNotEmpty && email.contains("@")) {
+        if (senha.isNotEmpty && senha.length > 6) {
+          Usuario usuario = Usuario(, _nome, _email, _senha, _tipoUsuario);
+          usuario.nome = nome;
+          usuario.email = email;
+          usuario.senha = senha;
+          usuario.tipoUsuario = '';
+        
+          //configurar usuario
+          //Navigator.pushNamed(context, "/home");
+        } else {
+          //erro
+          setState(() {
+            _mensagemErro = 'Preencha uma senha com mais de 6 caracteres';
+          });
+        }
+      } else {
+        //erro
+        setState(() {
+          _mensagemErro = 'Preencha um email válido';
+        });
+      }
+    } else {
+      //erro
+      setState(() {
+        _mensagemErro = 'Preencha com um nome de usuário';
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +120,7 @@ class _CadastroPageState extends State<CadastroPage> {
                   ),
                   child: Row(
                     children: [
-                    const  Text('Passageiro'),
+                      const Text('Passageiro'),
                       Switch(
                         value: _tipoUsuarioPassageiro,
                         onChanged: (bool valor) {
@@ -89,7 +129,7 @@ class _CadastroPageState extends State<CadastroPage> {
                           });
                         },
                       ),
-                    const  Text('Motorista'),
+                      const Text('Motorista'),
                     ],
                   ),
                 ),
@@ -100,19 +140,21 @@ class _CadastroPageState extends State<CadastroPage> {
                       style: ElevatedButton.styleFrom(
                         primary: const Color(0xff1ebbd8),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        _validarCampos();
+                      },
                       child: const Text(
                         "Cadastrar",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       )),
                 ),
 
-                const Padding(
-                  padding: EdgeInsets.only(top: 16),
+                Padding(
+                  padding: const EdgeInsets.only(top: 16),
                   child: Center(
                     child: Text(
-                      "Erro",
-                      style: TextStyle(color: Colors.red, fontSize: 20),
+                      _mensagemErro,
+                      style: const TextStyle(color: Colors.red, fontSize: 20),
                     ),
                   ),
                 )
