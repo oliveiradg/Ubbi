@@ -25,11 +25,7 @@ class _CadastroPageState extends State<CadastroPage> {
     if (nome.isNotEmpty) {
       if (email.isNotEmpty && email.contains("@")) {
         if (senha.isNotEmpty && senha.length > 6) {
-          Usuario usuario = Usuario(, _nome, _email, _senha, _tipoUsuario);
-          usuario.nome = nome;
-          usuario.email = email;
-          usuario.senha = senha;
-          usuario.tipoUsuario = '';
+        
         
           //configurar usuario
           //Navigator.pushNamed(context, "/home");
@@ -52,6 +48,7 @@ class _CadastroPageState extends State<CadastroPage> {
       });
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
